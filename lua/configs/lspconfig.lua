@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd("FileType", {
     -- Python LSP 配置
     vim.defer_fn(function()
       -- Ruff LSP
-      lspconfig.ruff_lsp.setup(vim.tbl_deep_extend("force", common_config, {
+      lspconfig.ruff.setup(vim.tbl_deep_extend("force", common_config, {
         init_options = {
           settings = {
             -- Ruff 特定设置
