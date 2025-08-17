@@ -5,12 +5,12 @@ local lspconfig = require("lspconfig")
 local util = require("lspconfig/util")
 local nvlsp = require "nvchad.configs.lspconfig"
 
--- 配置 LSP 服务器
-local servers = {
-  "ruff",    -- Python 的代码检查工具
-  -- "pyright",     -- Python 的类型检查和智能提示
-  "gopls",       -- Go 的官方 LSP
-}
+-- LSP 服务器列表（目前通过 autocmd 按需加载，此列表仅作参考）
+-- local servers = {
+--   "ruff",        -- Python 的代码检查工具
+--   "gopls",       -- Go 的官方 LSP
+--   "lua_ls",      -- Lua 的 LSP
+-- }
 
 -- 通用 LSP 配置
 local common_config = {

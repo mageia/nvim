@@ -79,12 +79,10 @@ return {
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-Space>'] = cmp.mapping.complete(),
-          ['<C-e>'] = cmp.mapping.abort(),
+          ['<C-c>'] = cmp.mapping.abort(),
           ['<CR>'] = cmp.mapping.confirm({ select = true }),
           ['<Tab>'] = cmp.mapping(function(fallback)
-            if require("copilot.suggestion").is_visible() then
-              require("copilot.suggestion").accept()
-            elseif cmp.visible() then
+            if cmp.visible() then
               cmp.select_next_item()
             else
               fallback()
@@ -119,9 +117,9 @@ return {
         enabled = true,
         auto_trigger = true,
         keymap = {
-          accept = "<Tab>",
+          accept = "<C-e>",
           accept_word = false,
-          accept_line = "<C-e>",
+          accept_line = "<C-l>",
           next = "<M-]>",
           prev = "<M-[>",
           dismiss = "<C-]>",
