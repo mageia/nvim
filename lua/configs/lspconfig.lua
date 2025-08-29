@@ -14,11 +14,26 @@ local nvlsp = require "nvchad.configs.lspconfig"
 
 -- 通用 LSP 配置
 local common_config = {
-  on_attach = nvlsp.on_attach,
+  on_attach = function(client, bufnr)
+    -- 禁用增量同步以避免 prev_line nil 错误
+    if client.server_capabilities.documentFormattingProvider then
+      client.server_capabilities.documentFormattingProvider = false
+    end
+    
+    -- 设置更安全的同步模式
+    if client.name == "ruff" or client.name == "gopls" or client.name == "lua_ls" then
+      client.config.flags = client.config.flags or {}
+      client.config.flags.allow_incremental_sync = false
+    end
+    
+    -- 调用原始的 on_attach
+    nvlsp.on_attach(client, bufnr)
+  end,
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
   flags = {
     debounce_text_changes = 150,
+    allow_incremental_sync = false,  -- 禁用增量同步
   },
 }
 
