@@ -1,25 +1,17 @@
 require "nvchad.mappings"
 
--- add yours here
-
 local map = vim.keymap.set
 
--- 常用命令
+-- 以下是与 NvChad 默认不同的自定义映射
+
+-- 快捷进入命令模式（NvChad 无此映射）
 map("n", ";", ":", { desc = "CMD enter command mode" })
+
+-- 快捷退出插入模式（NvChad 无此映射）
 map("i", "jk", "<ESC>")
 
--- 文件树
-map("n", "<leader>e", "<cmd> NvimTreeToggle <CR>")
+-- NvimTree 切换（NvChad 默认是 Focus，这里改为 Toggle）
+map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 
--- 保存文件
-map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
-
--- 窗口导航
-map("n", "<C-h>", "<C-w>h", { desc = "Window left" })
-map("n", "<C-l>", "<C-w>l", { desc = "Window right" })
-map("n", "<C-j>", "<C-w>j", { desc = "Window down" })
-map("n", "<C-k>", "<C-w>k", { desc = "Window up" })
-
--- 缓冲区导航
-map("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next buffer" })
-map("n", "<S-Tab>", "<cmd>bprevious<CR>", { desc = "Prev buffer" })
+-- 保存文件：扩展到插入和可视模式（NvChad 默认仅 normal 模式）
+map({ "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
