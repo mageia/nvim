@@ -54,17 +54,17 @@ return {
       "hrsh7th/cmp-buffer", -- 缓冲区补全
       "hrsh7th/cmp-path", -- 路径补全
       "hrsh7th/cmp-cmdline", -- 命令行补全
-      
+
       -- 代码片段引擎
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip", -- 代码片段补全
-      
+
       -- 补全时显示代码参数的虚拟提示
       -- "ray-x/lsp-signature.nvim",
     },
     config = function()
       local cmp = require("cmp")
-      
+
       cmp.setup({
         snippet = {
           expand = function(args)
@@ -125,7 +125,7 @@ return {
           dismiss = "<C-]>",
         },
       },
-      panel = { 
+      panel = {
         enabled = true,
         auto_refresh = true,
       },

@@ -19,13 +19,13 @@ local common_config = {
     if client.server_capabilities.documentFormattingProvider then
       client.server_capabilities.documentFormattingProvider = false
     end
-    
+
     -- 设置更安全的同步模式
     if client.name == "ruff" or client.name == "gopls" or client.name == "lua_ls" then
       client.config.flags = client.config.flags or {}
       client.config.flags.allow_incremental_sync = false
     end
-    
+
     -- 调用原始的 on_attach
     nvlsp.on_attach(client, bufnr)
   end,
