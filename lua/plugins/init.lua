@@ -1,4 +1,12 @@
 return {
+  -- NvimTree: 显示所有文件（包括 .gitignore 中的文件）
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = {
+      filters = { git_ignored = false },
+    },
+  },
+
   {
     "stevearc/conform.nvim",
     event = "BufWritePre",
