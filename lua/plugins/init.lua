@@ -89,25 +89,25 @@ return {
     end,
   },
 
-  -- Github Copilot
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    opts = {
-      suggestion = {
-        enabled = true,
-        auto_trigger = true,
-        keymap = {
-          accept = "<C-e>",
-          accept_line = "<C-l>",
-          next = "<M-]>",
-          prev = "<M-[>",
-          dismiss = "<C-]>",
-        },
-      },
-      panel = { enabled = true, auto_refresh = true },
-      filetypes = { ["*"] = true },
-    },
-  },
+  -- Github Copilot (已禁用)
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   event = "InsertEnter",
+  --   opts = {
+  --     suggestion = {
+  --       enabled = true,
+  --       auto_trigger = true,
+  --       keymap = {
+  --         accept = "<C-e>",
+  --         accept_line = "<C-l>",
+  --         next = "<M-]>",
+  --         prev = "<M-[>",
+  --         dismiss = "<C-]>",
+  --       },
+  --     },
+  --     panel = { enabled = true, auto_refresh = true },
+  --     filetypes = { ["*"] = true },
+  --   },
+  -- },
 }
